@@ -1,0 +1,14 @@
+/*select * from Products - Q1 */
+
+/*select ProductName,UnitPrice from Products- Q2 */
+
+/*select ProductName,UnitPrice,CategoryID from Products where UnitPrice>50 - Q3 */
+
+/*select ProductName,UnitPrice,CategoryID from Products where UnitPrice<50 and UnitPrice>40 - Q4 */
+
+/*select ProductName,UnitPrice,CategoryID from Products where UnitPrice>50 and (CategoryID=1 or CategoryID=2) - Q5 */
+
+/*select * from Suppliers - Q6 */
+
+
+/*insert into Products (sapak) select CompanyName from Suppliers - just a try */
