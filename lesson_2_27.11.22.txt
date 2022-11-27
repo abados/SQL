@@ -72,3 +72,82 @@ inner join [Order Details] Tbl2 on tbl1.OrderID = Tbl2.OrderID
 inner join [Products] Tbl3 on Tbl2.ProductID = Tbl3.ProductID 
 inner join [Suppliers] Tbl4 on Tbl3.SupplierID = Tbl4.SupplierID
 where tbl1.OrderID=10408*/
+
+סרטון 5 תרגילי סרטון ותרגילי טימס
+/*create table zolPo (productName nvarchar(30), price float default 0)
+
+insert into zolPo(productName,price) select ProductName,UnitPrice from Products where UnitPrice<5
+
+select * from zolPo
+
+drop table zolPo*/
+
+
+/*select ProductName,UnitPrice into zolPo from Products where UnitPrice<10
+
+select * from zolPo
+
+drop table zolPo*/
+
+/*select count(ProductName) as proName into zolPo from Products
+
+alter table zolPo add price int null
+
+select * from zolPo
+
+alter table zolPo drop column price 
+
+select * from zolPo
+
+drop table zolPo*/
+
+/*select Tbl3.ProductID,Tbl3.ProductName into newTable from [Orders] Tbl1
+inner join [Order Details]Tbl2 on Tbl1.OrderID = Tbl2.OrderID
+inner join [Products] Tbl3 on Tbl2.ProductID = Tbl3.ProductID
+where Tbl1.ShipVia = 1
+
+select * from newTable
+
+drop table newTable*/
+
+/*select Tbl3.ProductID,Tbl3.ProductName into newTable from [Orders] Tbl1
+inner join [Order Details]Tbl2 on Tbl1.OrderID = Tbl2.OrderID
+inner join [Products] Tbl3 on Tbl2.ProductID = Tbl3.ProductID
+where Tbl1.ShipVia = 1
+
+select top 5* from newTable
+
+drop table newTable*/
+
+/*select Tbl1.*,Tbl3.ProductName into order2 from [Orders] Tbl1
+inner join [Order Details]Tbl2 on Tbl1.OrderID = Tbl2.OrderID
+inner join [Products] Tbl3 on Tbl2.ProductID = Tbl3.ProductID
+where Tbl1.ShipVia = 2
+
+select ProductName from order2
+
+delete from order2 where ShipCountry like '%E%'
+
+select distinct ProductName from order2
+
+drop table order2*/
+
+/*select CustomerID,Tbl1.OrderID,Tbl4.CompanyName into orderA from [Orders] Tbl1
+inner join [Order Details]Tbl2 on Tbl1.OrderID = Tbl2.OrderID
+inner join [Products] Tbl3 on Tbl2.ProductID = Tbl3.ProductID
+inner join [Suppliers] Tbl4 on Tbl3.SupplierID=Tbl4.SupplierID
+where CustomerID like '%A%' 
+
+select distinct CompanyName from orderA
+
+drop table orderA*/
+
+select ContactName,ProductName into newTable from [Products] Tbl1
+inner join [Order Details]Tbl2 on Tbl1.ProductID = Tbl2.ProductID
+inner join [Orders]Tbl3 on Tbl2.OrderID = Tbl3.OrderID
+inner join [Customers]Tbl4 on Tbl3.CustomerID = Tbl4.CustomerID
+where ProductName like 'L%'
+
+select * from newTable
+
+drop table newTable
